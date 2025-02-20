@@ -47,12 +47,12 @@ public class AddNewEmployeeTest extends TestBaseHRM {
         String employeeIDNumber = personalDetailsPage.getEmployeeIDNumber();
         System.out.println("Employee ID returnat: " + employeeIDNumber);
 
-        //PIMPage pimPage = new PIMPage(driver);
+
         assertEquals("PIM", pimPage.getPageTitle());
         pimPage.goToEmployeeList();
 
         EmployeeListPage employeeListPage = new EmployeeListPage(driver);
-       // assertEquals("Employee Information", employeeListPage.getPageTitle());
+
         employeeListPage.goToEmployeeInfo();
         employeeListPage.enterName(fullName);
         employeeListPage.getNoRecordsFound();
