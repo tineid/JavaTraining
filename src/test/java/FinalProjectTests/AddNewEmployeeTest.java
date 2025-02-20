@@ -27,25 +27,38 @@ public class AddNewEmployeeTest extends TestBaseHRM {
         dashboardPage.goToPIM();
 
         PIMPage pimPage = new PIMPage(driver);
-        assertEquals("PIM",pimPage.getPageTitle());
+        assertEquals("PIM", pimPage.getPageTitle());
         pimPage.addNewEmployee();
 
         AddEmployeePage addEmployeePage = new AddEmployeePage(driver);
-        assertEquals("Add Employee",addEmployeePage.getPageTitle());
-        addEmployeePage.insertNames("fac", "fac", "fac");
+        assertEquals("Add Employee", addEmployeePage.getPageTitle());
+        addEmployeePage.insertNames("loc", "loc", "loc");
         addEmployeePage.randomNumberEmployeeID();
         addEmployeePage.getGeneratedEmployeeID();
-        //addEmployeePage.getEmployeeID();
+        //addEmployeePage.getEmployeeIDNumber();
 
 
         addEmployeePage.saveNewEmployee();
 
         PersonalDetailsPage personalDetailsPage = new PersonalDetailsPage(driver);
-        assertEquals("Personal Details",personalDetailsPage.getPageTitle());
-        String employeeID = personalDetailsPage.getEmployeeID();
-        System.out.println("Employee ID returnat: " + employeeID);
-        //personalDetailsPage.saveButton1();
-    }
+        assertEquals("Personal Details", personalDetailsPage.getPageTitle());
+        personalDetailsPage.getFullName();
+        String fullName = personalDetailsPage.getFullName();
+        String employeeIDNumber = personalDetailsPage.getEmployeeIDNumber();
+        System.out.println("Employee ID returnat: " + employeeIDNumber);
 
+        //PIMPage pimPage = new PIMPage(driver);
+        assertEquals("PIM", pimPage.getPageTitle());
+        pimPage.goToEmployeeList();
+
+        EmployeeListPage employeeListPage = new EmployeeListPage(driver);
+       // assertEquals("Employee Information", employeeListPage.getPageTitle());
+        employeeListPage.goToEmployeeInfo();
+        employeeListPage.enterName(fullName);
+        employeeListPage.getNoRecordsFound();
+        assertEquals("(1) Record Found", employeeListPage.getNoRecordsFound());
+        System.out.println("Recordul a fost salvat cu succes");
+
+    }
 
 }

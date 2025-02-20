@@ -82,7 +82,7 @@ public class AddEmployeePage {
 
         // Metodă pentru a obține Employee ID-ul generat
         public String getGeneratedEmployeeID() {
-            return generatedEmployeeID;
+            return employeeID.getAttribute("value"); // Returnează valoarea reală introdusă în câmp
         }
    // public String getEmployeeID() {
     //    return String.valueOf(focusID);
@@ -90,10 +90,7 @@ public class AddEmployeePage {
 
 
 
-    public int getEmployeeIDNumber(){
-        String employeeIDNumber = employeeID.getText();
-        return Integer.valueOf(employeeIDNumber);
-    }
+
 
     public void saveNewEmployee() {
         saveButton.click();
