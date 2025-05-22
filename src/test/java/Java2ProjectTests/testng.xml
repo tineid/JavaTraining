@@ -1,0 +1,9 @@
+
+        <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="DriverTestSuite">
+    <test name="DriverTest">
+        <classes>
+            <class name="Java2ProjectTests.BasicTest"/>
+        </classes>
+    </test>
+</suite>
