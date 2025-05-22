@@ -1,4 +1,4 @@
-package HelperMethods;
+package Java2HelperMethods;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
